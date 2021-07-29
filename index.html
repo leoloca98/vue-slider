@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue Slider</title>
+</head>
+
+<body>
+    <div id="slider-vue">
+        <div class="container vh-100">
+            <div class="row">
+                <div class="col-3 d-flex align-items-center justify-content-center">
+                    <i class="fas fa-angle-left fa-4x click" @click="decreaseIndex"></i>
+                </div>
+                <div class="col-6">
+                    <figure class="slider d-flex align-items-center position-relative">
+                        <img v-for="(url, index) in images" :src="url" class="img-fluid" :class="isActive(index)">
+                        <div id="slider-dots">
+                            <div v-for="(dot, index) in images" :class="isActive(index)" class="dot mx-2 click"
+                                @click="setCurrentIndex(index)">
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+                <div class="col-3 d-flex align-items-center justify-content-center">
+                    <i class="fas fa-angle-right fa-4x click" @click="increaseIndex"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
